@@ -105,7 +105,7 @@ export default function PositionRankingsPage() {
               )}
 
               {!loading && !error && (
-                <div className="mx-auto w-[95%] rounded-2xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:w-full sm:p-4">
+                <div className="mx-auto w-[95%] rounded-xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:w-full sm:p-4">
                   <PlayerRankingTable players={players} />
                 </div>
               )}

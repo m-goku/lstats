@@ -58,9 +58,6 @@ export default function PlayerDetailsPage() {
             <span className="absolute inline-flex h-16 w-16 animate-ping rounded-full bg-sky-400/20 sm:h-20 sm:w-20" />
             <span className="relative inline-flex h-10 w-10 animate-spin rounded-full border-2 border-sky-400/70 border-t-transparent sm:h-12 sm:w-12" />
           </div>
-          <p className="mt-6 text-[0.65rem] uppercase tracking-[0.4em] text-slate-500 sm:text-xs">
-            Fetching Player
-          </p>
         </div>
       </div>
     );
@@ -104,7 +101,9 @@ export default function PlayerDetailsPage() {
                 </div>
               </div>
               <div className="text-right text-xs text-slate-400 sm:text-sm">
-                <p className="font-semibold text-slate-200">Overall Efficiency</p>
+                <p className="font-semibold text-slate-200">
+                  Overall Efficiency
+                </p>
                 <p className="text-2xl font-semibold text-sky-300 sm:text-3xl">
                   {player.overallEfficiency}
                 </p>
@@ -185,7 +184,10 @@ export default function PlayerDetailsPage() {
                     <table className="min-w-full table-fixed text-xs text-slate-200 sm:text-sm">
                       <tbody className="divide-y divide-slate-800">
                         {Object.entries(positionStats).map(([key, value]) => (
-                          <tr key={key} className="transition hover:bg-slate-800/40">
+                          <tr
+                            key={key}
+                            className="transition hover:bg-slate-800/40"
+                          >
                             <td className="w-1/2 px-4 py-3 font-medium capitalize text-slate-300 sm:px-5 sm:py-4">
                               {key}
                             </td>

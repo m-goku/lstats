@@ -46,73 +46,73 @@ export default function PositionRankingsPage() {
   }, [selectedPosition]);
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-6">
-      <h1 className="text-2xl font-bold mb-6 text-center">
-        Volleyball Player Rankings
-      </h1>
+    <div className="min-h-screen bg-slate-950">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="space-y-10">
+          <header className="text-center">
+            <p className="text-[0.6rem] uppercase tracking-[0.4em] text-slate-500 sm:text-xs">
+              Elite Rankings
+            </p>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
+              Volleyball Player Performance
+            </h1>
+            <p className="mt-3 text-sm text-slate-400 sm:text-base">
+              Explore how each position stacks up across the league.
+            </p>
+          </header>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {POSITIONS.map((pos) => (
-          <button
-            key={pos}
-            onClick={() => setSelectedPosition(pos)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-colors ${
-              pos === selectedPosition
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 hover:bg-gray-200"
-            }`}
-          >
-            {pos}
-          </button>
-        ))}
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-2xl backdrop-blur sm:p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+              {POSITIONS.map((pos) => {
+                const isSelected = pos === selectedPosition;
+                return (
+                  <button
+                    key={pos}
+                    onClick={() => setSelectedPosition(pos)}
+                    className={`relative w-full overflow-hidden rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wide transition sm:w-auto sm:px-6 sm:text-sm ${
+                      isSelected
+                        ? "border-sky-400/60 bg-gradient-to-r from-sky-500/30 via-cyan-400/20 to-indigo-500/30 text-slate-100 shadow-lg shadow-sky-500/10"
+                        : "border-slate-700/70 bg-slate-900/40 text-slate-400 hover:border-slate-600 hover:text-slate-200"
+                    }`}
+                  >
+                    <span
+                      className={`absolute inset-y-0 left-0 w-1 rounded-full ${
+                        isSelected
+                          ? "bg-gradient-to-b from-sky-400 via-cyan-300 to-indigo-400"
+                          : "bg-slate-800"
+                      }`}
+                    />
+                    <span className="pl-4">{pos}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 sm:mt-10">
+              {loading && (
+                <div className="flex justify-center">
+                  <span className="relative inline-flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400/40" />
+                    <span className="relative inline-flex h-5 w-5 rounded-full bg-sky-400/70 sm:h-6 sm:w-6" />
+                  </span>
+                </div>
+              )}
+
+              {error && (
+                <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-center text-sm text-red-200 sm:px-5">
+                  {error}
+                </div>
+              )}
+
+              {!loading && !error && (
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:p-4">
+                  <PlayerRankingTable players={players} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-
-      {loading && <p className="text-center text-gray-500">Loading...</p>}
-      {error && <p className="text-center text-red-500">{error}</p>}
-
-      {!loading && !error && (
-        // <table className="w-full border-collapse border border-gray-200 text-sm">
-        //   <thead className="bg-gray-100">
-        //     <tr>
-        //       <th className="border border-gray-200 p-2">Rank</th>
-        //       <th className="border border-gray-200 p-2">Name</th>
-        //       <th className="border border-gray-200 p-2">Position</th>
-        //       <th className="border border-gray-200 p-2">Score</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>
-        //     {players.length === 0 ? (
-        //       <tr>
-        //         <td
-        //           colSpan={4}
-        //           className="text-center text-gray-400 p-4 italic"
-        //         >
-        //           No players found for {selectedPosition}.
-        //         </td>
-        //       </tr>
-        //     ) : (
-        //       players.map((player, index) => (
-        //         <tr
-        //           key={player?.name}
-        //           className="hover:bg-gray-50 transition-colors"
-        //         >
-        //           <td className="border border-gray-200 p-2 text-center">
-        //             {index + 1}
-        //           </td>
-        //           <td className="border border-gray-200 p-2">{player.name}</td>
-        //           <td className="border border-gray-200 p-2 text-center">
-        //             {player?.position}
-        //           </td>
-        //           <td className="border border-gray-200 p-2 text-center font-semibold">
-        //             {player?.score}
-        //           </td>
-        //         </tr>
-        //       ))
-        //     )}
-        //   </tbody>
-        // </table>
-        <PlayerRankingTable players={players} />
-      )}
     </div>
   );
 }

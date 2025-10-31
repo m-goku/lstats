@@ -23,9 +23,7 @@ export default function PlayerRankingTable({ players }: { players: Player[] }) {
             <th className="px-4 py-4 text-left text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 sm:px-6 sm:text-xs">
               Name
             </th>
-            <th className="px-4 py-4 text-left text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 sm:px-6 sm:text-xs">
-              Position
-            </th>
+
             <th className="px-4 py-4 text-right text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 sm:px-6 sm:text-xs">
               Score
             </th>
@@ -44,9 +42,7 @@ export default function PlayerRankingTable({ players }: { players: Player[] }) {
               <td className="px-4 py-3 text-sm font-medium text-slate-100 sm:px-6 sm:py-4 sm:text-base">
                 {player.name}
               </td>
-              <td className="px-4 py-3 text-xs text-slate-400 sm:px-6 sm:py-4 sm:text-sm">
-                {player.position}
-              </td>
+
               <td className="px-4 py-3 text-right text-sm font-semibold text-slate-100 sm:px-6 sm:py-4 sm:text-base">
                 {player.score.toFixed(2)}
               </td>

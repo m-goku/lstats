@@ -50,11 +50,11 @@ export default function PositionRankingsPage() {
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
         <div className="space-y-10">
           <header className="text-center">
-            <p className="text-[0.6rem] uppercase tracking-[0.4em] text-slate-500 sm:text-xs">
-              Elite Rankings
+            <p className="text-[0.6rem] uppercase tracking-[0.4em] text-slate-200 sm:text-xs">
+              Obed Rankings
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-              Volleyball Player Performance
+              Volleyball 
             </h1>
             <p className="mt-3 text-sm text-slate-400 sm:text-base">
               Explore how each position stacks up across the league.
@@ -62,14 +62,14 @@ export default function PositionRankingsPage() {
           </header>
 
           <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-2xl backdrop-blur sm:p-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {POSITIONS.map((pos) => {
                 const isSelected = pos === selectedPosition;
                 return (
                   <button
                     key={pos}
                     onClick={() => setSelectedPosition(pos)}
-                    className={`relative w-full overflow-hidden rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wide transition sm:w-auto sm:px-6 sm:text-sm ${
+                    className={`relative overflow-hidden rounded-full border px-4 py-1.5 text-[0.65rem] font-medium uppercase tracking-wide transition sm:px-6 sm:py-2 sm:text-sm ${
                       isSelected
                         ? "border-sky-400/60 bg-gradient-to-r from-sky-500/30 via-cyan-400/20 to-indigo-500/30 text-slate-100 shadow-lg shadow-sky-500/10"
                         : "border-slate-700/70 bg-slate-900/40 text-slate-400 hover:border-slate-600 hover:text-slate-200"
@@ -105,7 +105,7 @@ export default function PositionRankingsPage() {
               )}
 
               {!loading && !error && (
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:p-4">
+                <div className="mx-auto w-[95%] rounded-2xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:w-full sm:p-4">
                   <PlayerRankingTable players={players} />
                 </div>
               )}

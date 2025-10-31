@@ -35,14 +35,14 @@ export default function PlayerRankingTable({ players }: { players: Player[] }) {
             onClick={() => router.push(`/player/${player._id}`)}
             className="cursor-pointer bg-slate-900/30 transition hover:bg-slate-800/40"
           >
-            <td className="px-4 py-3 text-sm font-semibold text-sky-300 sm:px-6 sm:py-4 sm:text-base">
+            <td className="px-2 py-3 text-xm font-semibold text-sky-300 sm:px-2 sm:py-4 sm:text-base">
               {String(index + 1).padStart(2, "0")}
             </td>
-            <td className="px-4 py-3 text-xs font-medium text-slate-100 sm:px-6 sm:py-4 sm:text-base">
+            <td className="px-2 py-3 text-xs font-medium text-slate-100 sm:px-6 sm:py-4 sm:text-base">
               {player.name}
             </td>
 
-            <td className="px-4 py-3 text-right text-xm font-semibold text-slate-100 sm:px-6 sm:py-4 sm:text-base">
+            <td className="px-2 py-3 text-right text-xm font-semibold text-slate-100 sm:px-6 sm:py-4 sm:text-base">
               {player.score.toFixed(2)}
             </td>
           </tr>

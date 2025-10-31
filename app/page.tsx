@@ -54,14 +54,14 @@ export default function PositionRankingsPage() {
               Obed Rankings
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-              Volleyball 
+              Volleyball
             </h1>
             <p className="mt-3 text-sm text-slate-400 sm:text-base">
               Explore how each position stacks up across the league.
             </p>
           </header>
 
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-2xl backdrop-blur sm:p-6">
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-2xl backdrop-blur sm:p-3">
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {POSITIONS.map((pos) => {
                 const isSelected = pos === selectedPosition;
@@ -104,11 +104,7 @@ export default function PositionRankingsPage() {
                 </div>
               )}
 
-              {!loading && !error && (
-                <div className="mx-auto w-[95%] rounded-xl border border-slate-800 bg-slate-900/50 p-3 shadow-inner sm:w-full sm:p-4">
-                  <PlayerRankingTable players={players} />
-                </div>
-              )}
+              {!loading && !error && <PlayerRankingTable players={players} />}
             </div>
           </div>
         </div>
